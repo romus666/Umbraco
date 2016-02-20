@@ -1,0 +1,30 @@
+﻿@using Umbraco.Web
+@using vs.controllers
+@model vs.models.Login.Login
+
+
+
+
+@*@using (Html.BeginForm("Login","MemberLogin"))
+    {
+        @Html.TextBox("Name");
+        @Html.Password("Password");
+        <input type="submit" value="Sign In">
+    }*@
+@using (Html.BeginUmbracoForm<LoginController>("Login"))
+{
+    <div>
+        
+            
+            @Html.TextBoxFor(x => x.UserName)
+        
+             @Html.PasswordFor(x => x.Password)
+            <input type="submit" value="Login" class="button success" />
+    </div>
+}
+
+
+
+<script>
+   
+</script>
