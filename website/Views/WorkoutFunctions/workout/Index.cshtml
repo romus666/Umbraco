@@ -4,33 +4,35 @@
 @foreach (var workout in Model.Workoutlist)
 {
     <ul>
-        <li>@workout.Name</li>
-        <ul>
-            @foreach (var excercise in workout.Exercises)
-            {
-                <li>@excercise.Name</li>
-            }
-        </ul>
+        <li>
+            @workout.Name
+            <ul>
+                @foreach (var excercise in workout.Exercises)
+                {
+                    <li>@excercise.Name</li>
+                }
+            </ul>
+        </li>
     </ul>
 
 }
 
-@Html.ActionLink("Test", "GetWorkouts","Workout")
+@Html.ActionLink("Test", "GetWorkouts", "Workout")
 <button class="test">TEST</button>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $(".test").click(function() {
+    $(document).ready(function () {
+        $(".test").click(function () {
             console.log("ABC");
             testAjax();
         });
     });
-    
+
     function testAjax() {
         $.ajax({
-            method :"GET",
+            method: "GET",
             url: "Umbraco/Surface/Workout/GetWorkouts/",
             dataType: "json",
             success: function (data) {

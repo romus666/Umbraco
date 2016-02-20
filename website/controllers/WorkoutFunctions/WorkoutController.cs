@@ -32,7 +32,7 @@ namespace vs.controllers
                 mymodel.Workoutlist.Add(customWorkout);
             }
             
-            return PartialView("Index", mymodel);
+            return PartialView("/Views/WorkoutFunctions/workout/Index.cshtml", mymodel);
         }
 
         [HttpGet]

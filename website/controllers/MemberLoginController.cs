@@ -20,22 +20,26 @@ namespace vs.controllers
 
         public ActionResult Login(MemberLogin model)
         {
-            var member =
-                Services.MemberService.GetAllMembers()
-                    .FirstOrDefault(x => x.Username.ToLower().Equals(model.UserName.ToLower()));
-            
-            if (member != null)
+            if (ModelState.IsValid)
             {
-                //TODO CHECK PASSWORD
-                return Redirect("/Home");
+                var member =
+                    Services.MemberService.GetAllMembers()
+                        .FirstOrDefault(x => x.Username.ToLower().Equals(model.UserName.ToLower()));
+
+                if (member != null)
+                {
+                    var memberShipHelper = new Umbraco.Web.Security.MembershipHelper(UmbracoContext);
+                    if (memberShipHelper.Login(model.UserName, model.Password)){
+                        string s = string.Empty;
+                        //TODO CHECK PASSWORD
+                        return Redirect("/Home");
+                    }
+                }
+                
             }
-            else
-            {
-                //TODO NOT FOUND
-                return Redirect("/Login");
-            }
+            return Redirect("/Login");
             // var users = umbraco.BusinessLogic.User.getAll();
-            
+
         }
     }
 }
