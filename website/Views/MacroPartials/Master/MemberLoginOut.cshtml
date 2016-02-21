@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+<div class="login-logout">
+                @{
+                    var member = Membership.GetUser();
+                    if (member != null)
+                    {
+                        @Html.ActionLink("Logout", "Logout", "MemberLogin")
+                    }
+                }
+            </div>
+				

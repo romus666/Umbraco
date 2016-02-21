@@ -5,7 +5,7 @@ using System.Web;
 using Umbraco.Web;
 using Umbraco.Web.Models;
 
-namespace vs.models
+namespace vs.models.WorkoutFunctions
 {
     public class Workouts
     {

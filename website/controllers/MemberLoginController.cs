@@ -25,21 +25,21 @@ namespace vs.controllers
                 var member =
                     Services.MemberService.GetAllMembers()
                         .FirstOrDefault(x => x.Username.ToLower().Equals(model.UserName.ToLower()));
-
                 if (member != null)
                 {
                     var memberShipHelper = new Umbraco.Web.Security.MembershipHelper(UmbracoContext);
                     if (memberShipHelper.Login(model.UserName, model.Password)){
-                        string s = string.Empty;
-                        //TODO CHECK PASSWORD
                         return Redirect("/Home");
                     }
                 }
-                
             }
             return Redirect("/Login");
-            // var users = umbraco.BusinessLogic.User.getAll();
-
+        }
+        public ActionResult Logout()
+        {
+            var memberShipHelper = new Umbraco.Web.Security.MembershipHelper(UmbracoContext);
+            memberShipHelper.Logout();
+            return Redirect("/Login");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model vs.models.Workouts
+﻿@model vs.models.WorkoutFunctions.Workouts
 
 
 @foreach (var workout in Model.Workoutlist)
@@ -20,7 +20,6 @@
 @Html.ActionLink("Test", "GetWorkouts", "Workout")
 <button class="test">TEST</button>
 
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 <script>
     $(document).ready(function () {

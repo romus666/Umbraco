@@ -1,17 +1,37 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Optimization
 @{
     Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Umbraco Test</title>
+    @Styles.Render("~/bundles/css")
 </head>
 <body>
-    <div class="main">
-        @RenderBody()
+    
+   
+    <div class="site-wrapper">
+        <header>
+            <div class="container">
+                <img src="~/assets/images/main/logojb-noshadow.png" />
+                <i class="menu-icon mdi mdi-menu"></i>
+                @Umbraco.RenderMacro("MemberLoginOut")
+            </div>
+            <div class="gradient">
+
+            </div>
+        </header>
+
+        <main class="main">
+
+            @RenderBody()
+        </main>
     </div>
+    @Umbraco.RenderMacro("Navigation")
+    @Scripts.Render("~/bundles/js")
 </body>
+
 </html>

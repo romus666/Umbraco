@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
-using vs.models;
+using vs.models.WorkoutFunctions;
 
 namespace vs.controllers
 {
